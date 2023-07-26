@@ -1,8 +1,8 @@
 import './Profile.css';
 import React, { useState } from 'react';
 import { lazy } from 'react';
-import Header from '../Header/Header';
-import useFormAndValidation from '../../hooks/FormValidation/useFormValidation';
+import { Header } from '../Header/Header';
+import { useFormAndValidation } from '../../utils/useFormValidation';
 
 const LazyProfilePage = ({ onLogout }) => {
     const [currentUser, setCurrentUser] = useState({ name: 'Виталий', email: 'pochta@yandex.ru' });

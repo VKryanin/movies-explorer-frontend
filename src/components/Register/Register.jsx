@@ -1,6 +1,6 @@
 import React from 'react';
 import { lazy } from 'react';
-import './Register.css';
+import '../Login/Login.css';
 import AuthForm from '../AuthForm/AuthForm';
 import { useNavigate } from 'react-router-dom';
 

@@ -1,7 +1,9 @@
 import './App.css';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { Suspense, useEffect, useState } from 'react';
-
+import { DeviceContext } from '../../contexts/DeviceContext';
+import { windowWidth } from '../../contexts/DeviceContext';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext'
 import { Preloader } from '../Preloader/Preloader';
 import { Landing } from '../Landing/Landing';
 import { Main } from '../Main/Main';
@@ -9,6 +11,7 @@ import { SavedMovies } from '../SavedMovies/SavedMovies';
 import { Profile } from '../Profile/Profile';
 import { Register } from '../Register/Register';
 import { Login } from '../Login/Login';
+import { NotFound } from '../NotFound/NotFound';
 
 export const App = () => {
     const navigate = useNavigate();
@@ -85,7 +88,7 @@ export const App = () => {
                         />
                         <Route
                             path='*'
-                            element={<NotFoundPage />}
+                            element={<NotFound />}
                         />
                     </Routes>
                 </Suspense>
