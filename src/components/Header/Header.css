@@ -3,16 +3,6 @@
     gap: 43px;
     align-items: center;
     padding: 18px 70px;
-    background-color: #073042;
-}
-
-.header-movie {
-    display: flex;
-    gap: 43px;
-    align-items: center;
-    padding: 18px 70px;
-    background-color: #202020;
-    color: #fff;
 }
 
 .header__logo {

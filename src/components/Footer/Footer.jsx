@@ -6,26 +6,16 @@ export function Footer() {
     return (
         <footer className='footer'>
             <h2 className='footer__title'>Учебный проект Яндекс.Практикум х BeatFilm.</h2>
-            <div className='footer__copyright-wrapper'>
+            <div className='footer__wrapper'>
                 <p className='footer__copyright'>sooqa-dev © 2023</p>
-                <ul className='footer__links'>
-                    <li className='footer__links-element'>
-                        <Link
-                            className='footer__link'
-                            to='https://practicum.yandex.ru'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                        >
+                <ul className='footer__items'>
+                    <li className='footer__item'>
+                        <Link className='footer__link' to='https://practicum.yandex.ru' target='_blank' rel='noopener noreferrer'>
                             Яндекс.Практикум
                         </Link>
                     </li>
-                    <li className='footer__links-element'>
-                        <Link
-                            className='footer__link'
-                            to='https://github.com/vkryanin/'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                        >
+                    <li className='footer__item'>
+                        <Link className='footer__link' to='https://github.com/vkryanin/' target='_blank' rel='noopener noreferrer'>
                             Github
                         </Link>
                     </li>

@@ -1,4 +1,3 @@
-import './App.css';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { Suspense, useEffect, useState } from 'react';
 import { DeviceContext } from '../../contexts/DeviceContext';

@@ -1,16 +1,13 @@
 .movie {
     max-width: 364px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .movie__wrapper {
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 14px;
+    box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.08);
 }
 
 .movie__title {
@@ -33,44 +30,51 @@
     display: block;
     width: 100%;
     object-fit: cover;
-    margin-bottom: 18px;
 }
 
 .movie__favorite-button {
     cursor: pointer;
     padding: 0;
-    width: 100px;
-    height: 29px;
+    width: 30px;
+    height: 30px;
+    background: url('../../../images/saved-inactive.svg') center center;
     background-size: cover;
     border: transparent;
-    filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.15));
-    border-radius: 5px;
+    border-radius: 50%;
     transition: all .1s ease-in-out;
-    background: url('../../../images/save6.svg') center center;
 }
 
 .movie__delete-button {
     cursor: pointer;
     padding: 0;
-    width: 100px;
-    height: 29px;
+    width: 30px;
+    height: 30px;
+    background: url('../../../images/delete-movie.svg') center center;
+    background-size: cover;
     border: transparent;
-    filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.15));
-    border-radius: 5px;
+    
+    border-radius: 50%;
     transition: all .1s ease-in-out;
 }
 
 .movie__favorite-button_active {
-    background: url('../../../images/save6d.svg') center center;
+    background: url('../../../images/saved-active.svg') center center;
 }
 
 @media (pointer:fine) {
     .movie__favorite-button:hover {
         opacity: .8;
+        background: url('../../../images/saved-active.svg') center center;
     }
 
-    .movie__delete-button:hover {
+    .movie__favorite-button_active:hover {
         opacity: .8;
+        background: url('../../../images/saved-inactive.svg') center center;
+    }
+
+    .movie__delete-button_active:hover {
+        opacity: .8;
+        background: url('../../../images/saved-inactive.svg') center center;
     }
 }
 

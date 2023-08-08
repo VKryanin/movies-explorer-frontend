@@ -26,11 +26,7 @@ const LazyProfilePage = ({ onLogout }) => {
             <Header />
             <section className='profile'>
                 <h2 className='profile__title'>Привет, {currentUser.name}!</h2>
-                <form
-                    name='profile'
-                    className='profile__form'
-                    onSubmit={handleSubmit}
-                >
+                <form name='profile' className='profile__form' onSubmit={handleSubmit} >
                     <label className='profile__label'>
                         <span className='profile__input-title'>Имя</span>
                         <input
@@ -63,27 +59,15 @@ const LazyProfilePage = ({ onLogout }) => {
                         {serverResError && 'При обновлении профиля произошла ошибка.'}
                     </p>
                     {isShowSaveButton ? (
-                        <button
-                            type='submit'
-                            className='profile__button profile__button_type_submit'
-                        // disabled={!isValid}
-                        >
+                        <button type='submit' className='profile__button profile__button_type_submit' >
                             Сохранить
                         </button>
                     ) : (
                         <>
-                            <button
-                                type='button'
-                                className='profile__button'
-                                onClick={handleEditButtonClick}
-                            >
+                            <button type='button' className='profile__button' onClick={handleEditButtonClick} >
                                 Редактировать
                             </button>
-                            <button
-                                type='button'
-                                className='profile__button profile__button_type_logout'
-                                onClick={onLogout}
-                            >
+                            <button type='button' className='profile__button profile__button_type_logout' onClick={onLogout} >
                                 Выйти из аккаунта
                             </button>
                         </>

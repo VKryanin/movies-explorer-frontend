@@ -4,17 +4,9 @@ import './BurgerMenu.css';
 export function BurgerMenu({ active, onCloseMenu }) {
     return (
         <div className={active ? 'menu menu_active' : 'menu'}>
-            <div
-                className='menu__blur'
-                onClick={onCloseMenu}
-            >
+            <div className='menu__blur' onClick={onCloseMenu}>
                 <div className='menu__content' onClick={(e) => e.stopPropagation()}>
-                    <button
-                        type='button'
-                        aria-label='Закрыть меню'
-                        className='menu__close-button'
-                        onClick={onCloseMenu}
-                    />
+                    <button type='button' aria-label='Закрыть меню' className='menu__close-button' onClick={onCloseMenu} />
                     <NavMenu />
                 </div>
             </div>

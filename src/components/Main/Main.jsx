@@ -8,7 +8,7 @@ import { MovieSearch } from './MovieSearch/MovieSearch';
 const LazyMainPage = () => {
     return (
         <>
-            <Header class='header-movie' />
+            <Header />
             <MovieSearch />
             <MovieList />
             <Footer />

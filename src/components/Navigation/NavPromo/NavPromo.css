@@ -1,8 +1,8 @@
-.promo__buttons-wrapper-promo {
+.promo__nav {
     margin-left: auto;
 }
 
-.promo__nav-list-promo {
+.promo__items {
     display: flex;
     gap: 30px;
     list-style: none;
@@ -11,7 +11,7 @@
 }
 
 .promo__link {
-    color: #fff;
+    color: #000;
     text-decoration: none;
     text-align: center;
     font-weight: 500;
@@ -23,14 +23,20 @@
 
 .promo__link_type_login {
     padding: 8px 20px;
-    background: #3DDC84;
     color: #000;
+    background: #2BE080;
     border-radius: 3px;
 }
 
 @media (pointer: fine) {
     .promo__link:hover {
         opacity: .8;
+
+    }
+
+    .promo__items li:hover {
+        scale: 1.1;
+        transition: all 0.2s linear;
     }
 }
 
@@ -39,7 +45,7 @@
         font-size: 10px;
     }
 
-    .promo__nav-list-promo {
+    .promo__items {
         gap: 14px;
     }
 

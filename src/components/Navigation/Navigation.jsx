@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Navigation.css';
 import { NavMenu } from './NavMenu/NavMenu';
 import { BurgerMenu } from './BurgerMenu/BurgerMenu';
 import { DeviceContext } from '../../contexts/DeviceContext';
-import { useLocation } from 'react-router-dom';
 import { NavPromo } from './NavPromo/NavPromo';
 
 export function Navigation() {
@@ -34,15 +34,9 @@ export function Navigation() {
                     {isDesktop ? (
                         <NavMenu isDesktop={isDesktop} />
                     ) : (
-                        <button
-                            type='button'
-                            className='header__burger-btn'
-                            onClick={handleMenu}
-                        />
+                        <button type='button' className='header__burger-button' onClick={handleMenu} />
                     )}
-                    <BurgerMenu
-                        active={menuActive}
-                        onCloseMenu={handleMenu}
+                    <BurgerMenu active={menuActive} onCloseMenu={handleMenu}
                     />
                 </>
             )}

@@ -7,16 +7,20 @@ export function NavTab() {
         <nav className='nav-tab'>
             <ul className='nav-tab__links'>
                 <li>
-                    <Link
-                        className='nav-tab__link'
-                        to='about'
-                        smooth={true}
-                        duration={500}
-                    >
-                        <span>Узнать больше</span> 
+                    <Link className='nav-tab__link' to='about' smooth={true} duration={500} >
+                        О проекте
                     </Link>
                 </li>
-
+                <li>
+                    <Link className='nav-tab__link' to='techs' smooth={true} duration={500} >
+                        Технологии
+                    </Link>
+                </li>
+                <li>
+                    <Link className='nav-tab__link' to='student' smooth={true} duration={500} offset={50} >
+                        Студент
+                    </Link>
+                </li>
             </ul>
         </nav>
     );

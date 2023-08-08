@@ -14,16 +14,17 @@
 .label__input {
     outline: none;
     border: none;
-    background-color: #2F2F2F;
+    background-color: transparent;
     padding-bottom: 10px;
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
+    border-bottom: 1px solid #E8E8E8;
 }
 
-.label__input:focus {
+/* .label__input:focus {
     border-bottom: 1px solid #FFF;
-}
+} */
 
 .label__input:-webkit-autofill {
     -webkit-box-shadow: inset 0 0 0 50px #fff;
