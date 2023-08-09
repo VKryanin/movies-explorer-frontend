@@ -3,16 +3,16 @@
 }
 
 .student__wrapper {
-    padding-top: 66px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: 66px;
 }
 
 .student__info {
-    max-width: 599px;
     display: flex;
     flex-direction: column;
+    max-width: 599px;
 }
 
 .student__title {
@@ -26,10 +26,10 @@
 
 .student__job {
     margin: 0;
+    padding-bottom: 26px;
     font-weight: 500;
     font-size: 18px;
     line-height: 20px;
-    padding-bottom: 26px;
 }
 
 .student__about {

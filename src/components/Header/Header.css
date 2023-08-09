@@ -1,16 +1,16 @@
 .header {
     display: flex;
-    gap: 43px;
     align-items: center;
+    gap: 43px;
     padding: 18px 70px;
 }
 
 .header__logo {
-    cursor: pointer;
     min-width: 38px;
     min-height: 38px;
     background: url(../../images/logo.svg) no-repeat center;
     background-size: 38px 38px;
+    cursor: pointer;
 }
 
 @media (pointer: fine) {
