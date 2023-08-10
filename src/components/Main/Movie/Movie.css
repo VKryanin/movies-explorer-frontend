@@ -3,11 +3,13 @@
 }
 
 .movie__wrapper {
+    max-width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 14px;
     box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.08);
+    flex-shrink: 1;
 }
 
 .movie__title {
@@ -29,7 +31,9 @@
 .movie__image {
     display: block;
     width: 100%;
+    max-width: 364px;
     object-fit: cover;
+    flex-grow: 1;
 }
 
 .movie__favorite-button {
