@@ -9,14 +9,14 @@ import { Footer } from '../Footer/Footer';
 
 const LazyLandingPage = () => {
     return (
-        <>
+        <main>
             <Header />
             <Promo />
             <AboutProject />
             <Techs />
             <AboutMe />
             <Footer />
-        </>
+        </main>
     )
 }
 

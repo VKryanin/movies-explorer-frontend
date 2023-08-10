@@ -7,7 +7,7 @@ export function Movie(props) {
     const location = useLocation();
     return (
         <li className='movie'>
-            <div className='movie__wrapper'>
+            <section className='movie__wrapper'>
                 <div className='movie__description'>
                     <h1 className='movie__title'>{name}</h1>
                     <p className="movie__subtitle">{duration}</p>
@@ -17,9 +17,9 @@ export function Movie(props) {
                     : <button type='button' className='movie__delete-button' />
                 }
 
-            </div>
+            </section>
+            {/* Так alt у картинки уникален,просто по макету все фильмы с одним названием */}
             <img className='movie__image' src={link} alt={name} />
-
         </li>
     );
 };

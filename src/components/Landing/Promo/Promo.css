@@ -46,7 +46,7 @@
 @media screen and (max-width: 767px) {
     .promo__container {
         min-height: 586px;
-        margin: 14px auto 0;
+        margin: 14px 14px 0;
     }
 
     .promo__title {

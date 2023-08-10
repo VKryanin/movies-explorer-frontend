@@ -7,12 +7,12 @@ import { MovieSearch } from './MovieSearch/MovieSearch';
 
 const LazyMainPage = () => {
     return (
-        <>
+        <main>
             <Header />
             <MovieSearch />
             <MovieList />
             <Footer />
-        </>
+        </main>
     )
 }
 

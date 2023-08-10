@@ -5,7 +5,7 @@ export function MovieSearch() {
     return (
         <form className='search'>
             <div className="search__container">
-                <input className='search__input' type="text" placeholder='Фильм' />
+                <input className='search__input' type="text" placeholder='Фильм' required/>
                 <button className='search__button' type="button"></button>
             </div>
             <label className="search__label">

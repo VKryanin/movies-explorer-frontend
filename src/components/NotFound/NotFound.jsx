@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const LazyNotFoundPage = () => {
     const navigate = useNavigate();
     return (
-        <section className='not-found'>
+        <main className='not-found'>
             <h1 className='not-found__title'>404</h1>
             <p className='not-found__caption'>Упс. Страница не найдена</p>
             <button
@@ -16,7 +16,7 @@ const LazyNotFoundPage = () => {
             >
                 Назад
             </button>
-        </section>
+        </main>
     );
 };
 
