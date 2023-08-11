@@ -7,10 +7,12 @@ import { useNavigate } from 'react-router-dom';
 const LazyRegisterPage = ({ onLogin, onRegister }) => {
     const navigate = useNavigate();
     return (
-        <main className='auth'>
-            <div onClick={() => navigate('/')} className='auth__logo'></div>
-            <h2 className='auth__title'>Добро пожаловать!</h2>
-            <AuthForm isRegForm={true} onLogin={onLogin} onRegister={onRegister} />
+        <main >
+            <section className='auth'>
+                <div onClick={() => navigate('/')} className='auth__logo'></div>
+                <h2 className='auth__title'>Добро пожаловать!</h2>
+                <AuthForm isRegForm={true} onLogin={onLogin} onRegister={onRegister} />
+            </section>
         </main>
     );
 };

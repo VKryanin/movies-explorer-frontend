@@ -7,10 +7,12 @@ import { useNavigate } from 'react-router-dom';
 const LazyLoginPage = ({ onLogin, onRegister }) => {
   const navigate = useNavigate();
   return (
-    <main className='auth'>
-      <div onClick={() => navigate('/')} className='auth__logo'></div>
-      <h2 className='auth__title'>Рады видеть!</h2>
-      <AuthForm isRegForm={false} onLogin={onLogin} onRegister={onRegister} />
+    <main >
+      <section className='auth'>
+        <div onClick={() => navigate('/')} className='auth__logo'></div>
+        <h2 className='auth__title'>Рады видеть!</h2>
+        <AuthForm isRegForm={false} onLogin={onLogin} onRegister={onRegister} />
+      </section>
     </main>
   );
 };
@@ -18,5 +20,5 @@ const LazyLoginPage = ({ onLogin, onRegister }) => {
 const LazyLogin = lazy(() => Promise.resolve({ default: LazyLoginPage }));
 
 export const Login = () => {
-    return <LazyLogin />;
+  return <LazyLogin />;
 };
