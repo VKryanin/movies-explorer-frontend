@@ -26,7 +26,7 @@ export function AboutProject() {
                     </li>
                 </ul>
                 <div className='about__duration'>
-                    <h3 className='about__duration-title about__duration-heading_type_inverted'>
+                    <h3 className='about__duration-title about__duration-heading'>
                         1 неделя
                     </h3>
                     <h3 className='about__duration-title'>4 недели</h3>

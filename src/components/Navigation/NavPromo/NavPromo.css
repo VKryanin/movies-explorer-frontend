@@ -1,8 +1,8 @@
-.promo__nav {
+.header__navigation {
     margin-left: auto;
 }
 
-.promo__items {
+.header__list {
     display: flex;
     gap: 30px;
     list-style: none;
@@ -10,7 +10,7 @@
     margin: 0;
 }
 
-.promo__link {
+.header__link {
     color: #000;
     text-decoration: none;
     text-align: center;
@@ -21,7 +21,7 @@
     transition: all 0.2s linear;
 }
 
-.promo__link_type_login {
+.header__link_type_login {
     padding: 8px 20px;
     color: #000;
     background: #2BE080;
@@ -29,27 +29,27 @@
 }
 
 @media (pointer: fine) {
-    .promo__link:hover {
+    .header__link:hover {
         opacity: .8;
 
     }
 
-    .promo__items li:hover {
+    .header__list li:hover {
         scale: 1.1;
         transition: all 0.2s linear;
     }
 }
 
 @media screen and (max-width: 767px) {
-    .promo__link {
+    .header__link {
         font-size: 10px;
     }
 
-    .promo__items {
+    .header__list {
         gap: 14px;
     }
 
-    .promo__link_type_login {
+    .header__link_type_login {
         padding: 5px 12px;
     }
 }

@@ -1,4 +1,4 @@
-.section__title {
+.title {
     margin: 0;
     padding: 0;
     padding-bottom: 23px;
@@ -10,7 +10,7 @@
 }
 
 @media screen and (max-width: 767px) {
-    .section__title {
+    .title {
         font-size: 18px;
         line-height: 22px;
         padding-bottom: 28px;
