@@ -3,7 +3,7 @@ import './Movie.css';
 import { useLocation } from 'react-router-dom';
 
 export function Movie(props) {
-    const { name, duration, saved, link } = props;
+    const { name, id, duration, saved, link } = props;
     const location = useLocation();
     return (
         <li className='movie'>
@@ -18,8 +18,7 @@ export function Movie(props) {
                 }
 
             </section>
-            {/* Так alt у картинки уникален,просто по макету все фильмы с одним названием */}
-            <img className='movie__image' src={link} alt={name} />
+            <img className='movie__image' src={link} alt={`Фильм: ${name}, id:${id} `} />
         </li>
     );
 };

@@ -30,7 +30,6 @@ export const App = () => {
 
         handleDevice();
         window.addEventListener('resize', handleDevice);
-
         return () => window.removeEventListener('resize', handleDevice);
     }, [device]);
 
@@ -51,44 +50,21 @@ export const App = () => {
             <DeviceContext.Provider value={device}>
                 <Suspense fallback={<Preloader />}>
                     <Routes>
-                        <Route
-                            path='/'
-                            element={<Landing />}
-                        />
-                        <Route
-                            path='/movies'
-                            element={<Main />}
-                        />
-                        <Route
-                            path='/saved-movies'
-                            element={<SavedMovies />}
-                        />
-                        <Route
-                            path='/profile'
-                            element={<Profile onLogout={handleLogout} />}
-                        />
-                        <Route
-                            path='/signup'
-                            element={
-                                <Register
-                                    onLogin={handleSignin}
-                                    onRegister={handleSignup}
-                                />
-                            }
+                        <Route path='/' element={<Landing />} />
+                        <Route path='/movies' element={<Main />} />
+                        <Route path='/saved-movies' element={<SavedMovies />} />
+                        <Route path='/profile' element={<Profile onLogout={handleLogout} />} />
+                        <Route path='/signup' element={
+                            <Register onLogin={handleSignin} onRegister={handleSignup} />
+                        }
                         />
                         <Route
                             path='/signin'
                             element={
-                                <Login
-                                    onLogin={handleSignin}
-                                    onRegister={handleSignup}
-                                />
+                                <Login onLogin={handleSignin} onRegister={handleSignup} />
                             }
                         />
-                        <Route
-                            path='*'
-                            element={<NotFound />}
-                        />
+                        <Route path='*' element={<NotFound />} />
                     </Routes>
                 </Suspense>
             </DeviceContext.Provider>

@@ -1,14 +1,14 @@
 export const projects = [
     {
         title: 'Статичный сайт',
-        url: '#',
+        url: 'http://vitalykryanin.ru/',
     },
     {
         title: 'Адаптивный сайт',
-        url: '#',
+        url: 'https://vkryanin.github.io/russian-travel/',
     },
     {
         title: 'Одностраничное приложение',
-        url: '#',
+        url: 'https://vkryanin.github.io/mesto/',
     },
 ];

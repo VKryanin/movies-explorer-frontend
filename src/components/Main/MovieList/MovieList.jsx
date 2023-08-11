@@ -14,7 +14,7 @@ export function MovieList() {
     const [firstRenderCount, setFirstRenderCount] = useState(0);
     const [page, setPage] = useState(0);
     const [isLoading, setLoading] = useState(false);
-
+    
     useEffect(() => {
         const calcFilmsToRender = (device) => {
             const configForFilmsRender = {
@@ -54,18 +54,12 @@ export function MovieList() {
     };
 
     return (
-        <main className='movies'>
+        <section className='movies'>
             <ul className='movies__list'>
                 {location.pathname === '/movies'
                     ? movies.slice(0, firstRenderCount).map((film) => {
                         return (
-                            <Movie
-                                key={film._id}
-                                name={film.name}
-                                duration={film.duration}
-                                link={film.link}
-                                saved={film.saved}
-                            />
+                            <Movie key={film._id} id={film._id} name={film.name} duration={film.duration} link={film.link} saved={film.saved} />
                         );
                     })
                     : movies
@@ -98,7 +92,7 @@ export function MovieList() {
                 )}
                 {isLoading && <Preloader />}
             </div>
-        </main>
+        </section>
     );
 };
 

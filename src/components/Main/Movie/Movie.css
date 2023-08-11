@@ -1,5 +1,5 @@
 .movie {
-    width: 364px;
+    max-width: 364px;
 }
 
 .movie__wrapper {

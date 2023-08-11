@@ -1,4 +1,5 @@
 import React from 'react';
+import './Main.css'
 import { lazy } from 'react';
 import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
@@ -7,12 +8,14 @@ import { MovieSearch } from './MovieSearch/MovieSearch';
 
 const LazyMainPage = () => {
     return (
-        <main>
+        <>
             <Header />
-            <MovieSearch />
-            <MovieList />
+            <main className='main'>
+                <MovieSearch />
+                <MovieList />
+            </main>
             <Footer />
-        </main>
+        </>
     )
 }
 

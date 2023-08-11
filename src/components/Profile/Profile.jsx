@@ -1,5 +1,6 @@
 import './Profile.css';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { lazy } from 'react';
 import { Header } from '../Header/Header';
 import { useFormAndValidation } from '../../utils/useFormValidation';
@@ -67,9 +68,7 @@ const LazyProfilePage = ({ onLogout }) => {
                             <button type='button' className='profile__button' onClick={handleEditButtonClick} >
                                 Редактировать
                             </button>
-                            <button type='button' className='profile__button profile__button_type_logout' onClick={onLogout} >
-                                Выйти из аккаунта
-                            </button>
+                            <Link to="/" className='profile__button profile__button_type_logout'>Выйти из аккаунта</Link>
                         </>
                     )}
                 </form>
