@@ -1,6 +1,6 @@
 .movies {
     max-width: 1140px;
-    margin: 70px 70px 0;
+    margin: 69px 70px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,7 +19,7 @@
 }
 
 .movies__paggination-wrapper {
-    margin: 50px auto 92px;
+    margin: 50px auto 80px;
 }
 
 .movies__show-more-button {

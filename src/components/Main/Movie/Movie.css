@@ -1,5 +1,5 @@
 .movie {
-    max-width: 364px;
+    width: 364px;
 }
 
 .movie__wrapper {
@@ -16,7 +16,7 @@
     margin: 0;
     font-weight: 500;
     font-size: 15px;
-    line-height: 18px;
+    line-height: normal;
 }
 
 .movie__subtitle {

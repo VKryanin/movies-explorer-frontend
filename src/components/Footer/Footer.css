@@ -1,15 +1,19 @@
 .footer {
+    max-width: 100%;
+    max-height: 172px;
     background-color: #FAFAFA;
-    padding: 66px 70px 20px;
+    /* padding: 66px 70px 20px; */
 }
 
 .footer__title {
-    margin: 0;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 79px 0 20px;
     padding-bottom: 20px;
-    border-bottom: 1px solid #e8e8e8;
     font-weight: 400;
     font-size: 13px;
-    line-height: 16px;
+    line-height: normal;
+    font-feature-settings: 'clig' off, 'liga' off;
     text-align: center;
     color: #a0a0a0;
 }
@@ -17,7 +21,10 @@
 .footer__wrapper {
     display: flex;
     justify-content: space-between;
-    padding-top: 20px;
+    width: 1140px;
+    padding: 20px 0;
+    border-top: 1px solid #e8e8e8;
+    margin: 0 auto;
 }
 
 .footer__copyright {
@@ -40,7 +47,7 @@
     color: #000;
     font-weight: 400;
     font-size: 13px;
-    line-height: 16px;
+    line-height: normal;
 }
 
 @media (pointer: fine) {
