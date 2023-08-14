@@ -38,14 +38,14 @@ export const films = [
         _id: 5,
         name: 'В погоне за Бенкси',
         duration: '1ч 27м',
-        saved: true,
+        saved: false,
         link: '../posters/6.jpg',
     },
     {
         _id: 6,
         name: 'В погоне за Бенкси',
         duration: '1ч 27м',
-        saved: true,
+        saved: false,
         link: './posters/7.jpg',
     },
     {

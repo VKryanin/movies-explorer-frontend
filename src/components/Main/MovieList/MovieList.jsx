@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './MovieList.css';
-import { films } from '../../../utils/films'
+import { films } from '../../../utils/films';
 import { Movie } from '../Movie/Movie';
 import { useLocation } from 'react-router-dom';
 import { DeviceContext } from '../../../contexts/DeviceContext';
@@ -14,7 +14,7 @@ export function MovieList() {
     const [firstRenderCount, setFirstRenderCount] = useState(0);
     const [page, setPage] = useState(0);
     const [isLoading, setLoading] = useState(false);
-    
+
     useEffect(() => {
         const calcFilmsToRender = (device) => {
             const configForFilmsRender = {
@@ -87,12 +87,11 @@ export function MovieList() {
                                 : 'movies__show-more-button movies__show-more-button_type_inactive'
                         }
                     >
-                        Ещё
+                        Еще
+                        {isLoading && <Preloader />}
                     </button>
                 )}
-                {isLoading && <Preloader />}
             </div>
         </section>
     );
 };
-
