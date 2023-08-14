@@ -9,7 +9,7 @@ export function NavMenu({ isDesktop }) {
                 {!isDesktop && (
                     <li className='header__item'>
                         <NavLink className={
-                            ({ isActive }) => `header__link header__link_type_default ${isActive && 'header__link_active'}`
+                            ({ isActive }) => `header__navlink header__navlink_type_default ${isActive && 'header__navlink_active'}`
                         } to='/' >
                             Главная
                         </NavLink>
@@ -17,21 +17,21 @@ export function NavMenu({ isDesktop }) {
                 )}
                 <li className='header__item'>
                     <NavLink className={
-                        ({ isActive }) => `header__link header__link_type_default ${isActive && 'header__link_active'}`
+                        ({ isActive }) => `header__navlink header__navlink_type_default ${isActive && 'header__navlink_active'}`
                     } to='/movies' >
                         Фильмы
                     </NavLink>
                 </li>
                 <li className='header__item'>
                     <NavLink className={
-                        ({ isActive }) => `header__link header__link_type_default ${isActive && 'header__link_active'}`
+                        ({ isActive }) => `header__navlink header__navlink_type_default ${isActive && 'header__navlink_active'}`
                     } to='/saved-movies' >
                         Сохранённые фильмы
                     </NavLink>
                 </li>
                 <li className='header__item'>
                     <NavLink className={
-                        ({ isActive }) => `header__link header__link_type_profile ${isActive && 'header__link_active'}`
+                        ({ isActive }) => `header__navlink header__navlink_type_profile ${isActive && 'header__navlink_active'}`
                     } to='/profile' >
                         Аккаунт
                     </NavLink>
