@@ -19,6 +19,7 @@
 }
 
 .movies__paggination-wrapper {
+    box-sizing: border-box;
     margin: 50px auto 80px;
     /* min-height: 140px; */
 }
@@ -45,8 +46,9 @@
 }
 
 .movies__show-more-button_type_inactive {
-    /* visibility: hidden; */
-    display: none;
+    visibility: hidden;
+    height: 10px;
+    /* display: none; */
 }
 
 @media screen and (max-width: 1054px) {
@@ -58,14 +60,14 @@
     }
 
     .movies__list {
-        /* padding: 80px 70px 30px; */
         grid-template-columns: repeat(2, minmax(1%, 1fr));
         gap: 36px 30px;
         justify-items: center;
     }
 
     .movies__paggination-wrapper {
-        margin: 50px auto 94px;
+        margin: 50px auto 80px;
+        max-height: 140px;
     }
 }
 
