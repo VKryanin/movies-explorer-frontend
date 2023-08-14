@@ -10,7 +10,7 @@ export const films = [
         _id: 1,
         name: 'В погоне за Бенкси',
         duration: '1ч 27м',
-        saved: true,
+        saved: false,
         link: './posters/2.jpg',
     },
     {
