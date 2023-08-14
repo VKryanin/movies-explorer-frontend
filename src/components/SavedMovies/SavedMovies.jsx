@@ -9,8 +9,10 @@ const LazySavedMovies = ({ isLoggedIn }) => {
     return (
         <>
             <Header isLoggedIn={isLoggedIn} />
-            <MovieSearch />
-            <MovieList />
+            <main>
+                <MovieSearch />
+                <MovieList />
+            </main>
             <Footer />
         </>
     );
