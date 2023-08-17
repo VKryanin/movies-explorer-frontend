@@ -1,5 +1,4 @@
 import React from 'react';
-import { lazy } from 'react';
 import { Header } from '../Header/Header';
 import { Promo } from './Promo/Promo';
 import { AboutProject } from './AboutProject/AboutProject';
@@ -7,7 +6,7 @@ import { Techs } from './Techs/Techs';
 import { AboutMe } from './AboutMe/AboutMe';
 import { Footer } from '../Footer/Footer';
 
-const LazyLandingPage = () => {
+const Landing = () => {
     return (
         <>
             <Header />
@@ -22,8 +21,4 @@ const LazyLandingPage = () => {
     )
 }
 
-const LazyLanding = lazy(() => Promise.resolve({ default: LazyLandingPage }));
-
-export const Landing = () => {
-    return <LazyLanding />;
-};
+export default Landing

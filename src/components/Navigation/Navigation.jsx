@@ -5,12 +5,14 @@ import { NavMenu } from './NavMenu/NavMenu';
 import { BurgerMenu } from './BurgerMenu/BurgerMenu';
 import { DeviceContext } from '../../contexts/DeviceContext';
 import { NavPromo } from './NavPromo/NavPromo';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 export function Navigation() {
     const location = useLocation();
     const [menuActive, setMenuActive] = useState(false);
     const device = useContext(DeviceContext);
     const [isDesktop, setDesktop] = useState(true);
+    const { isLoggedIn } = useContext(CurrentUserContext);
 
     const handleMenu = () => {
         setMenuActive(!menuActive);
@@ -27,7 +29,7 @@ export function Navigation() {
 
     return (
         <>
-            {location.pathname === '/' ? (
+            {(location.pathname === '/' && !isLoggedIn) ? (
                 <NavPromo />
             ) : (
                 <>

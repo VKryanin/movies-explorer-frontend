@@ -21,5 +21,6 @@ export const useFormAndValidation = (initialValues = {}, initialErrors = {}, ini
         [setValues, setErrors, setValid]
     );
 
-    return { values, errors, isValid, handleChange, resetForm, setValues };
+    return { values, errors, isValid, handleChange, resetForm, setValues, setValid };
 };
+

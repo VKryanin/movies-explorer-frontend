@@ -1,24 +1,17 @@
 import React from 'react';
-import { lazy } from 'react';
-import './Login.css';
-import AuthForm from '../AuthForm/AuthForm';
 import { useNavigate } from 'react-router-dom';
+import AuthForm from '../AuthForm/AuthForm';
+import './Login.css';
 
-const LazyLoginPage = ({ onLogin, onRegister }) => {
+const Login = ({ onLogin, onRegister }) => {
   const navigate = useNavigate();
   return (
-    <main >
-      <section className='auth'>
-        <div onClick={() => navigate('/')} className='auth__logo'></div>
-        <h2 className='auth__title'>Рады видеть!</h2>
-        <AuthForm isRegForm={false} onLogin={onLogin} onRegister={onRegister} />
-      </section>
-    </main>
+    <div className='auth'>
+      <div onClick={() => navigate('/')} className='auth__logo'></div>
+      <h2 className='auth__title'>Рады видеть!</h2>
+      <AuthForm isRegForm={false} onLogin={onLogin} onRegister={onRegister} />
+    </div>
   );
 };
 
-const LazyLogin = lazy(() => Promise.resolve({ default: LazyLoginPage }));
-
-export const Login = () => {
-  return <LazyLogin />;
-};
+export default Login;

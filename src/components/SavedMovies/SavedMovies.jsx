@@ -1,25 +1,32 @@
 import React from 'react';
-import { lazy } from 'react';
 import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
 import { MovieList } from '../Main/MovieList/MovieList';
 import { MovieSearch } from '../Main/MovieSearch/MovieSearch';
+import { useSearchFilms } from '../../utils/useSearchFilms';
 
-const LazySavedMovies = ({ isLoggedIn }) => {
+export function SavedMovies({ isLoggedIn, movies, onDelete, onError, onTrailerClick }) {
+    const { sortedMovies, handleSearch, isLoading, text } = useSearchFilms({
+        movies: movies,
+        isSavedPage: true,
+    });
     return (
         <>
             <Header isLoggedIn={isLoggedIn} />
             <main>
-                <MovieSearch />
-                <MovieList />
+                <MovieSearch
+                    onSubmit={handleSearch}
+                    movies={sortedMovies}
+                    onError={onError} />
+                <MovieList
+                    movies={sortedMovies}
+                    savedMovies={sortedMovies}
+                    isLoading={isLoading}
+                    text={text}
+                    onDelete={onDelete}
+                    onTrailerClick={onTrailerClick} />
             </main>
             <Footer />
         </>
     );
-};
-
-const LazySavedMoviesWrapper = lazy(() => Promise.resolve({ default: LazySavedMovies }));
-
-export const SavedMovies = () => {
-    return <LazySavedMoviesWrapper />;
 };
