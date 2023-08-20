@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 import { Suspense, useEffect, useState } from 'react';
 import { DeviceContext } from '../../contexts/DeviceContext';
@@ -83,23 +84,27 @@ export const App = () => {
         }
     }, [currentUser.isLoggedIn]);
 
-    const checkToken = async () => {
-        if (localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY)) {
+    async function checkToken() {
+        const token = localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY);
+        if (token) {
             try {
                 const userInfo = await api.getUserInfo();
-                setCurrentUser((prev) => ({
+                setCurrentUser(prev => ({
                     ...prev,
                     name: userInfo.data.name,
                     email: userInfo.data.email,
                     isLoggedIn: true,
                 }));
-            } catch (e) {
+            } catch (error) {
                 localStorage.clear();
-                setCurrentUser((prev) => ({ ...prev, isLoggedIn: false }));
-                handleError('С токеном что-то не так. Авторизуйтесь заново.')
+                setCurrentUser(prev => ({
+                    ...prev,
+                    isLoggedIn: false,
+                }));
+                handleError('С токеном что-то не так. Авторизуйтесь заново.');
             }
         }
-    };
+    }
 
     const closeAllPopups = () => {
         setInfoPopupOpen(false);
