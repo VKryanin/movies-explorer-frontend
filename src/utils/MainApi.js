@@ -2,7 +2,7 @@ import { LOCAL_STORAGE_TOKEN_KEY } from './constants';
 
 class Api {
     constructor() {
-        this._link = "api.vitaly.nomoredomains.work";
+        this._link = "http://api.vitaly.nomoredomains.work";
         // this._link = 'http://localhost:3000';
     }
 

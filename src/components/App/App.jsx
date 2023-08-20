@@ -151,7 +151,7 @@ export const App = () => {
                 successText: `${newUser.name}, Вы успешно зарегистрировались.`,
             }));
         } catch (e) {
-            console.log(`eto ${e}`);
+            console.log(`${e}`);
             handleError(e);
         } finally {
             disableLoader();
@@ -273,9 +273,9 @@ export const App = () => {
                             <Route path='*' element={<NotFound />} />
                         </Routes>
                     </Suspense>
-                    <InfoTooltip isOpen={isInfoPopupOpen} onClose={closeAllPopups}
+                    <InfoTooltip isOpen={isInfoPopupOpen} onClosed={closeAllPopups}
                     />
-                    <PopupVideo isOpen={isVideoPopupOpen} onClose={closeAllPopups} name={currentMovie.nameRU} link={currentMovie.trailerLink}
+                    <PopupVideo isOpen={isVideoPopupOpen} onClosed={closeAllPopups} name={currentMovie.nameRU} link={currentMovie.trailerLink}
                     />
                 </ApiServiceContext.Provider>
             </DeviceContext.Provider>
