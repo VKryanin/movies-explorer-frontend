@@ -131,23 +131,25 @@ export const App = () => {
         handleError('Для поиска нужно ввести запрос.');
     };
 
-    const handleSignin = async ({ email, password }) => {
+    const handleSignin = ({ email, password }) => {
         try {
             enableLoader();
-            const { token } = await api.signin({ email, password });
-            localStorage.setItem(LOCAL_STORAGE_TOKEN_KEY, token);
-            setCurrentUser((prev) => ({ ...prev, isLoggedIn: true }));
-            navigate('/movies', { replace: true });
+            api.signin({ email, password })
+                .then(({ token }) => {
+                    localStorage.setItem(LOCAL_STORAGE_TOKEN_KEY, token);
+                    setCurrentUser(prev => ({ ...prev, isLoggedIn: true }));
+                    navigate('/movies', { replace: true });
+                })
+                .catch(e => handleError(e))
+                .finally(disableLoader());
         } catch (e) {
             handleError(e);
-        } finally {
-            disableLoader();
         }
     };
 
     const handleSignup = async ({ email, password, name }) => {
+        enableLoader();
         try {
-            enableLoader();
             const newUser = await api.signup({ email, password, name });
             handleSignin({ email, password });
             setApiService((prev) => ({
@@ -155,12 +157,10 @@ export const App = () => {
                 successText: `${newUser.name}, Вы успешно зарегистрировались.`,
             }));
             setInfoPopupOpen(true);
-        } catch (e) {
-            console.log(`?? ${e}`);
-            handleError(e);
-        } finally {
-            disableLoader();
+        } catch (error) {
+            handleError(error);
         }
+        disableLoader();
     };
 
     const handleLogout = () => {
