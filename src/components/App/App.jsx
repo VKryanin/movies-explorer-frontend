@@ -126,10 +126,10 @@ export const App = () => {
         handleError('Для поиска нужно ввести запрос.');
     };
 
-    const handleLogin = async ({ email, password }) => {
+    const handleSignin = async ({ email, password }) => {
         try {
             enableLoader();
-            const { token } = await api.login({ email, password });
+            const { token } = await api.signin({ email, password });
             localStorage.setItem(LOCAL_STORAGE_TOKEN_KEY, token);
             setCurrentUser((prev) => ({ ...prev, isLoggedIn: true }));
             navigate('/movies', { replace: true });
@@ -140,18 +140,18 @@ export const App = () => {
         }
     };
 
-    const handleRegister = async ({ email, password, name }) => {
+    const handleSignup = async ({ email, password, name }) => {
         try {
             enableLoader();
-            const newUser = await api.register({ email, password, name });
-            handleLogin({ email, password });
-            setInfoPopupOpen(true);
+            const newUser = await api.signup({ email, password, name });
+            handleSignin({ email, password });
             setApiService((prev) => ({
                 ...prev,
                 successText: `${newUser.name}, Вы успешно зарегистрировались.`,
             }));
+            setInfoPopupOpen(true);
         } catch (e) {
-            console.log(`${e}`);
+            console.log(`?? ${e}`);
             handleError(e);
         } finally {
             disableLoader();
@@ -236,10 +236,10 @@ export const App = () => {
                         <Routes>
                             <Route path='/' element={<LandingLazy />} />
                             <Route path='/signup' element={
-                                <RegisterLazy onLogin={handleLogin} onRegister={handleRegister} />
+                                <RegisterLazy onLogin={handleSignin} onRegister={handleSignup} />
                             } />
                             <Route path='/signin' element={
-                                <Login onLogin={handleLogin} onRegister={handleRegister} />
+                                <Login onLogin={handleSignin} onRegister={handleSignup} />
                             } />
                             <Route element={<ProtectedRoute />}>
                                 <Route path='/movies' element={

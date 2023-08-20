@@ -49,7 +49,7 @@
     transition: opacity 0.3s linear;
 }
 
-.popup__tooltip-wrapper {
+.popup__tooltip {
     width: 430px;
     display: flex;
     flex-direction: column;
@@ -74,7 +74,7 @@
         
     }
 
-    .popup__tooltip-wrapper {
+    .popup__tooltip {
         max-width: 282px;
         text-align: center;
     }

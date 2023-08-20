@@ -11,7 +11,7 @@ export function InfoTooltip({ isOpen, name, onClosed }) {
             name={name}
             onClose={onClosed}
         >
-            <div className='popup__tooltip-wrapper'>
+            <div className='popup__tooltip'>
                 <h2>{isError ? 'Ошибка' : 'Успешно'}</h2>
                 <p>{isError ? errorText : successText}</p>
             </div>

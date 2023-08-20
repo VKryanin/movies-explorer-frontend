@@ -3,7 +3,6 @@ import { LOCAL_STORAGE_TOKEN_KEY } from './constants';
 class Api {
     constructor() {
         this._link = "http://api.vitaly.nomoredomains.work";
-        // this._link = 'http://localhost:3000';
     }
 
     _checkResponse(res) {
@@ -15,7 +14,7 @@ class Api {
         });
     }
 
-    register({ email, password, name }) {
+    signup({ email, password, name }) {
         return fetch(`${this._link}/signup`, {
             headers: {
                 "Content-Type": "application/json",
@@ -27,7 +26,7 @@ class Api {
         }).then((res) => this._checkResponse(res));
     };
 
-    login({ email, password }) {
+    signin({ email, password }) {
         return fetch(`${this._link}/signin`, {
             headers: {
                 "Content-Type": "application/json",
