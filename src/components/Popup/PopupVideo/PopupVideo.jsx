@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { ApiServiceContext } from '../../../contexts/ApiServiceContext';
 import { Preloader } from '../../Preloader/Preloader';
 
-export function PopupVideo({ isOpened, name, onClosed, link = 'https://www.youtube.com/watch?v=PTvTLvkiAbI' }) {
+export function PopupVideo({ isOpen, name, onClose, link = 'https://www.youtube.com/watch?v=PTvTLvkiAbI' }) {
     const { isLoading } = useContext(ApiServiceContext);
 
     const replaceLink = (link) => {
@@ -17,9 +17,9 @@ export function PopupVideo({ isOpened, name, onClosed, link = 'https://www.youtu
 
     return (
         <Popup
-            isOpened={isOpened}
+            isOpen={isOpen}
             name={name}
-            onClosed={onClosed}
+            onClosed={onClose}
         >
             {isLoading && <Preloader />}
             {!isLoading && <iframe

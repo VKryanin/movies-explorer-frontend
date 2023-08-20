@@ -1,40 +1,30 @@
 import './Popup.css';
 import { useEffect } from "react";
 
-export function Popup({ isOpened, name, onClosed, children }) {
+export function Popup({ isOpen, name, onClose, children }) {
     useEffect(() => {
-        if (!isOpened) return;
+        if (!isOpen) return;
         const closeByEsc = (evt) => {
             if (evt.key === 'Escape') {
-                onClosed();
+                onClose();
             }
         }
 
         document.addEventListener('keydown', closeByEsc)
         return () => document.removeEventListener('keydown', closeByEsc)
-    }, [isOpened, onClosed])
+    }, [isOpen, onClose])
 
     const handleOverlay = (evt) => {
         if (evt.target === evt.currentTarget) {
-            onClosed();
+            onClose();
         }
     }
 
     return (
-        <div
-            className={`popup ${isOpened ? "popup_opened" : ""} popup_type_${name}`}
-            onMouseDown={handleOverlay}
-        >
+        <div className={`popup ${isOpen ? "popup_opened" : ""} popup_type_${name}`} onMouseDown={handleOverlay} >
             <div className='popup__content'>
                 {children}
-                <button
-                    type="button"
-                    name="button_form_close"
-                    id="button_form-add_close"
-                    className="popup__close-button"
-                    aria-label="Закрыть"
-                    onClick={onClosed}
-                />
+                <button className="popup__close-button" type="button" name="button_form_close" id="button_form-add_close" aria-label="Закрыть" onClick={onClose} />
             </div>
         </div>
     );

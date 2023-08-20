@@ -3,7 +3,6 @@ import "./MovieSearch.css";
 import { useLocation } from 'react-router-dom';
 import { LOCAL_STORAGE_LAST_SEARCH_QUERY } from '../../../utils/constants';
 
-
 export function MovieSearch({ onSubmit, isLoading, onError }) {
     const location = useLocation();
     const [searchQuery, setSearchQuery] = useState({

@@ -151,6 +151,7 @@ export const App = () => {
                 successText: `${newUser.name}, Вы успешно зарегистрировались.`,
             }));
         } catch (e) {
+            console.log(`eto ${e}`);
             handleError(e);
         } finally {
             disableLoader();
