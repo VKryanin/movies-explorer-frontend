@@ -279,9 +279,9 @@ export const App = () => {
                             <Route path='*' element={<NotFound />} />
                         </Routes>
                     </Suspense>
-                    <InfoTooltip isOpen={isInfoPopupOpen} onClosed={closeAllPopups}
+                    <InfoTooltip isOpen={isInfoPopupOpen} onClose={closeAllPopups}
                     />
-                    <PopupVideo isOpen={isVideoPopupOpen} onClosed={closeAllPopups} name={currentMovie.nameRU} link={currentMovie.trailerLink}
+                    <PopupVideo isOpen={isVideoPopupOpen} onClose={closeAllPopups} name={currentMovie.nameRU} link={currentMovie.trailerLink}
                     />
                 </ApiServiceContext.Provider>
             </DeviceContext.Provider>

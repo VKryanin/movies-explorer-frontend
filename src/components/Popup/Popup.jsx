@@ -2,6 +2,7 @@ import './Popup.css';
 import { useEffect } from "react";
 
 export function Popup({ isOpen, name, onClose, children }) {
+
     useEffect(() => {
         if (!isOpen) return;
         const closeByEsc = (evt) => {
@@ -9,7 +10,6 @@ export function Popup({ isOpen, name, onClose, children }) {
                 onClose();
             }
         }
-
         document.addEventListener('keydown', closeByEsc)
         return () => document.removeEventListener('keydown', closeByEsc)
     }, [isOpen, onClose])

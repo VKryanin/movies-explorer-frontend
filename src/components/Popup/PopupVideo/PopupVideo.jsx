@@ -16,7 +16,7 @@ export function PopupVideo({ isOpen, name, onClose, link = 'https://www.youtube.
     };
 
     return (
-        <Popup isOpen={isOpen} name={name} onClosed={onClose} >
+        <Popup isOpen={isOpen} name={name} onClose={onClose} >
             {isLoading && <Preloader />}
             {!isLoading && <iframe className='popup__iframe' src={replaceLink(link)} title={name}
                 allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'

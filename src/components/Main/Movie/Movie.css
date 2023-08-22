@@ -32,6 +32,7 @@
     max-width: 364px;
     object-fit: cover;
     flex-grow: 1;
+    cursor: pointer;
 }
 
 .movie__favorite-button {
