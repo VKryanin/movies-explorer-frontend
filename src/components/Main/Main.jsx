@@ -7,7 +7,6 @@ import { MovieSearch } from './MovieSearch/MovieSearch';
 import { useSearchFilms } from '../../utils/useSearchFilms';
 
 function Main({ movies, savedMovies, onSave, onDelete, onError, onTrailerClick }) {
-    console.log(movies, 12);
     const { sortedMovies, handleSearch, isLoading, text, } = useSearchFilms({
         movies: movies,
         isSavedPage: false,

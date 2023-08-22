@@ -39,7 +39,6 @@ export function Movie(props) {
                         onClick={() => onSave(movieData)}
                     />
                 )}
-
             </section>
             <img className='movie__image' src={link} alt={`Фильм: ${name}`} onClick={() => onTrailerClick(movieData)} />
         </li>

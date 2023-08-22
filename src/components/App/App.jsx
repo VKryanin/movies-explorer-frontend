@@ -259,7 +259,7 @@ export const App = () => {
                                 } />
                                 <Route path='/saved-movies' element={
                                     <SavedMovies
-                                        movies={savedMovies}
+                                        movies={movies}
                                         savedMovies={savedMovies}
                                         onDelete={handleClickDeleteMovie}
                                         onError={handleSearchError}
