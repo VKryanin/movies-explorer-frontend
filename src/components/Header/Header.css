@@ -1,0 +1,34 @@
+.header {
+    display: flex;
+    align-items: center;
+    gap: 43px;
+    padding: 18px 70px;
+    box-sizing: border-box;
+}
+
+.header__logo {
+    min-width: 38px;
+    min-height: 38px;
+    background: url(../../images/logo.svg) no-repeat center;
+    background-size: 38px 38px;
+    cursor: pointer;
+}
+
+@media (pointer: fine) {
+    .header__logo:hover {
+        opacity: .8;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .header {
+        padding: 18px 30px;
+        max-height: 74px;;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header {
+        padding: 18px 14px;
+    }
+}
