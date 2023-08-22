@@ -73,13 +73,13 @@ export const App = () => {
                 .getMovies()
                 .then(setMovies)
                 .catch((e) => {
-                    console.error(e);
+                    console.error(e, 13);
                 });
             api
                 .getSavedMovies()
                 .then((movies) => setSavedMovies(movies.data))
                 .catch((e) => {
-                    console.error(e);
+                    console.error(e, 12);
                 });
         }
     }, [currentUser.isLoggedIn]);
@@ -198,7 +198,8 @@ export const App = () => {
 
         api
             .saveMovie(movieData)
-            .then((savedMovie) => setSavedMovies((movies) => [...movies, savedMovie.data]))
+            .then((savedMovie) => {
+                setSavedMovies((movies) => [...movies, savedMovie.data])})
             .catch((e) => console.error(e));
     };
 
