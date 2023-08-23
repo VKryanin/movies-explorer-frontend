@@ -73,7 +73,7 @@ export const App = () => {
                 .getMovies()
                 .then(setMovies)
                 .catch((e) => {
-                    console.error(e, 13);
+                    console.error(e);
                 });
             api
                 .getSavedMovies()

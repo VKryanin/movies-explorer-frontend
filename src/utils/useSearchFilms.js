@@ -13,6 +13,7 @@ export function useSearchFilms({ movies, isSavedPage, isMoviesPage }) {
     });
 
     useEffect(() => {
+        console.log(isSavedPage, movies, 12);
         if (isSavedPage) {
             setSortedMovies(movies);
         }
