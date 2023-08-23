@@ -276,7 +276,7 @@ export const App = () => {
                                 } />
                             </Route>
 
-                            <Route path='*' element={<NotFound />} />
+                            <Route path='/*' element={<NotFound />} />
                         </Routes>
                     </Suspense>
                     <InfoTooltip isOpen={isInfoPopupOpen} onClose={closeAllPopups}
