@@ -59,9 +59,7 @@ const AuthForm = ({ isRegForm, onLogin, onRegister }) => {
                     <button
                         type='submit'
                         className={`form__submit-button ${!isValid && 'form__submit-button_disabled'}`}
-                        disabled={!isValid || errors.email
-                        }
-                    >
+                        disabled={!isValid || errors.email} >
                         {isRegForm ? 'Зарегистрироваться' : 'Войти'}
                     </button >}
             <p className='form__link-caption'>
