@@ -9,6 +9,7 @@ import { ApiServiceContext } from '../../contexts/ApiServiceContext';
 const AuthForm = ({ isRegForm, onLogin, onRegister }) => {
     const { values, errors, isValid, handleChange, resetForm } = useFormAndValidation();
     const { isLoading } = useContext(ApiServiceContext);
+
     const handleSubmit = (evt) => {
         evt.preventDefault();
         if (isRegForm) {
@@ -18,6 +19,7 @@ const AuthForm = ({ isRegForm, onLogin, onRegister }) => {
         }
         resetForm();
     };
+
     return (
         <form
             name={isRegForm ? 'register' : 'login'}
@@ -55,35 +57,24 @@ const AuthForm = ({ isRegForm, onLogin, onRegister }) => {
             <p className={`form__response - error ${!isRegForm && 'form__response-error_type_login'}`}>
             </p>
             {
-                isLoading ? <Preloader /> :
-                    <button
-                        type='submit'
-                        className={`form__submit-button ${!isValid && 'form__submit-button_disabled'}`}
-                        disabled={!isValid || errors.email} >
-                        {isRegForm ? 'Зарегистрироваться' : 'Войти'}
-                    </button >}
+                isLoading ? <Preloader />
+                    : <button type='submit' className={`form__submit-button ${!isValid && 'form__submit-button_disabled'}`} disabled={!isValid
+                    } >
+                        {isRegForm ? 'Зарегистрироваться' : 'Войти'}</button >}
             <p className='form__link-caption'>
-                {isRegForm ? (
-                    <>
-                        Уже зарегистрированы?
-                        <Link
-                            to='/signin'
-                            className='form__link'
-                        >
-                            Войти
-                        </Link>
-                    </>
-                ) : (
-                    <>
+                {isRegForm ? (<>
+                    Уже зарегистрированы?
+                    <Link to='/signin' className='form__link' >
+                        Войти
+                    </Link>
+                </>)
+                    : (<>
                         Еще не зарегистрированы?
-                        <Link
-                            to='/signup'
-                            className='form__link'
-                        >
+                        <Link to='/signup' className='form__link' >
                             Регистрация
                         </Link>
                     </>
-                )}
+                    )}
             </p>
         </form >
     );
