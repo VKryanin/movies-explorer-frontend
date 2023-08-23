@@ -283,7 +283,6 @@ export const App = () => {
                                     <ProfileLazy
                                         onLogout={handleLogout}
                                         onSubmit={handleChangeProfileData}
-                                        setIsFetching={setIsFetching}
                                     />
                                 } />
                             </Route>

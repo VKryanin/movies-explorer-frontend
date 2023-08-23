@@ -12,7 +12,7 @@ export const useFormAndValidation = (initialValues = {}, initialErrors = {}, ini
         setValues({ ...values, [name]: value });
         setErrors({ ...errors, [name]: target.validationMessage });
         setValid(target.closest('form').checkValidity());
-
+        console.log(values);
         if (name === 'name') {
             if (target.validationMessage === 'Введите данные в указанном формате.') {
                 setErrors({

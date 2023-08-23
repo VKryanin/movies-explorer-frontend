@@ -13,7 +13,7 @@ const AuthForm = ({ isRegForm, handleForm, isFetching }) => {
     function handleSubmit(e) {
         e.preventDefault();
         const { name, email, password } = values;
-        handleForm({ name, email, password });
+        handleForm({ email: email, password: password, name: name });
     }
 
     return (

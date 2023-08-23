@@ -2,7 +2,7 @@ import './Profile.css';
 import React, { useState, useContext, useEffect } from 'react';
 import { Preloader } from '../Preloader/Preloader';
 import { Header } from '../Header/Header';
-import { useFormAndValidation } from '../../utils/useFormValidation';
+import { useFormAndValidation } from '../../utils/useFormAndValidation';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { ApiServiceContext } from '../../contexts/ApiServiceContext';
 
