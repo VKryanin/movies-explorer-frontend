@@ -55,15 +55,14 @@ const AuthForm = ({ isRegForm, handleForm, isFetching }) => {
             {
                 isLoading ? <Preloader />
                     : <button type='submit'
-                    className={!isValid || isFetching
-                    ? 'form__submit-button'
-                    : 'form__submit-button form__submit-button_disabled'
-                    }
-                    disabled={!isValid || isFetching ? true : false} >
+                        className={!isValid || isFetching
+                            ? 'form__submit-button form__submit-button_disabled'
+                            : 'form__submit-button'
+                        }
+                        disabled={!isValid || isFetching ? true : false} >
                         {isRegForm ? 'Зарегистрироваться' : 'Войти'}</button >}
             <p className='form__link-caption'>
-                {isRegForm ? (<>
-                    Уже зарегистрированы?
+                {isRegForm ? (<> Уже зарегистрированы?
                     <Link to='/signin' className='form__link' >
                         Войти
                     </Link>

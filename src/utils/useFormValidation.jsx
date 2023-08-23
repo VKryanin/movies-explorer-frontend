@@ -13,13 +13,11 @@ export const useFormAndValidation = (initialValues = {}, initialErrors = {}, ini
         setErrors({ ...errors, [name]: target.validationMessage });
         setValid(target.closest('form').checkValidity());
 
-        // Подставляю свой текст ошибки при валидации имени, чтобы пользователь
-        // понимал что не так
         if (name === 'name') {
-            if (target.validationMessage === 'Please match the requested format.') {
+            if (target.validationMessage === 'Введите данные в указанном формате.') {
                 setErrors({
                     ...errors,
-                    name: 'Name must contain olny Latin or Cyrillic characters, spaces or symbol "-" and must not start with space',
+                    name: 'Имя должно содержать только символы латиницы или кириллицы',
                 });
             }
         }
