@@ -12,13 +12,12 @@ export const Label = ({ title, name, values, handleChange, errors, minLength, ma
                 maxLength={maxLength || null}
                 placeholder={`Введите ${title}`}
                 className='label__input'
-                value={values[`${name}`] || ''}
+                value={values[name] || ''}
                 autoComplete={name}
                 onChange={handleChange}
                 required
             />
-            
-            <span className='label__span-error'>{errors[`${name}`]}</span>
+            <span className='label__span-error'>{errors[name]}</span>
         </label>
     )
 }

@@ -9,19 +9,27 @@ export const useFormAndValidation = (initialValues = {}, initialErrors = {}, ini
     const handleChange = (evt) => {
         const { name, value } = evt.target;
         setValues({ ...values, [name]: value });
-
         if (name === 'email') {
             const emailRegex = /^\S+@\S+\.\S+$/;
             if (!emailRegex.test(value)) {
                 setErrors({ ...errors, [name]: 'Некорректный email' });
-                setEmailValid(false);
             } else {
                 setErrors({ ...errors, [name]: '' });
-                setEmailValid(true);
             }
-        } else {
-            setErrors({ ...errors, [name]: evt.target.validationMessage });
+        } else if (name === 'password') {
+            if (value.length < 6) {
+                setErrors({ ...errors, [name]: 'Пароль должен содержать не менее 6 символов' });
+            } else {
+                setErrors({ ...errors, [name]: '' });
+            }
+        } else if (name === 'name') {
+            if (value.length < 2 || value.length > 30) {
+                setErrors({ ...errors, [name]: 'Имя должно содержать от 2 до 30 символов' });
+            } else {
+                setErrors({ ...errors, [name]: '' });
+            }
         }
+        console.log(evt.target.closest('form').checkValidity());
         setValid(evt.target.closest('form').checkValidity());
     };
 
@@ -36,4 +44,3 @@ export const useFormAndValidation = (initialValues = {}, initialErrors = {}, ini
 
     return { values, errors, isValid, handleChange, resetForm, setValues, setValid };
 };
-

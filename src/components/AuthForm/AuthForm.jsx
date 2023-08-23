@@ -11,10 +11,12 @@ const AuthForm = ({ isRegForm, onLogin, onRegister }) => {
     const { isLoading } = useContext(ApiServiceContext);
     const handleSubmit = (evt) => {
         evt.preventDefault();
+        if (isRegForm) {
+            onRegister({ email: values.email, password: values.password, name: values.name });
+        } else {
+            onLogin({ email: values.email, password: values.password });
+        }
         resetForm();
-        isRegForm
-            ? onRegister({ email: values.email, password: values.password, name: values.name })
-            : onLogin({ email: values.email, password: values.password });
     };
     return (
         <form
@@ -50,16 +52,18 @@ const AuthForm = ({ isRegForm, onLogin, onRegister }) => {
                 errors={errors}
                 minLength={6}
             />
-            <p className={`form__response-error ${!isRegForm && 'form__response-error_type_login'}`}>
+            <p className={`form__response - error ${!isRegForm && 'form__response-error_type_login'}`}>
             </p>
-            {isLoading ? <Preloader /> :
-                <button
-                    type='submit'
-                    className={`form__submit-button ${!isValid || errors.email && 'form__submit-button_disabled'}`}
-                    disabled={!isValid || errors.email}
-                >
-                    {isRegForm ? 'Зарегистрироваться' : 'Войти'}
-                </button>}
+            {
+                isLoading ? <Preloader /> :
+                    <button
+                        type='submit'
+                        className={`form__submit-button ${!isValid && 'form__submit-button_disabled'}`}
+                        disabled={!isValid || errors.email
+                        }
+                    >
+                        {isRegForm ? 'Зарегистрироваться' : 'Войти'}
+                    </button >}
             <p className='form__link-caption'>
                 {isRegForm ? (
                     <>
@@ -83,7 +87,7 @@ const AuthForm = ({ isRegForm, onLogin, onRegister }) => {
                     </>
                 )}
             </p>
-        </form>
+        </form >
     );
 };
 
