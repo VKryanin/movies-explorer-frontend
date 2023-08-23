@@ -35,7 +35,7 @@ export const App = () => {
 
     const [isInfoPopupOpen, setInfoPopupOpen] = useState(false);
     const [isVideoPopupOpen, setVideoPopupOpen] = useState(false);
-
+    const [isFetching, setIsFetching] = useState(false);
     const [apiService, setApiService] = useState({});
 
     useEffect(() => {
@@ -132,6 +132,7 @@ export const App = () => {
     };
 
     const handleSignin = ({ email, password }) => {
+        setIsFetching(true);
         try {
             enableLoader();
             api.signin({ email, password })
@@ -143,11 +144,13 @@ export const App = () => {
                 .catch(e => handleError(e))
                 .finally(disableLoader());
         } catch (e) {
+            setIsFetching(false);
             handleError(e);
         }
     };
 
     const handleSignup = async ({ email, password, name }) => {
+        setIsFetching(true);
         enableLoader();
         try {
             const newUser = await api.signup({ email, password, name });
@@ -158,6 +161,7 @@ export const App = () => {
             }));
             setInfoPopupOpen(true);
         } catch (error) {
+            setIsFetching(false);
             handleError(error);
         }
         disableLoader();
@@ -199,7 +203,8 @@ export const App = () => {
         api
             .saveMovie(movieData)
             .then((savedMovie) => {
-                setSavedMovies((movies) => [...movies, savedMovie.data])})
+                setSavedMovies((movies) => [...movies, savedMovie.data])
+            })
             .catch((e) => console.error(e));
     };
 
@@ -211,6 +216,7 @@ export const App = () => {
     };
 
     const handleChangeProfileData = ({ name, email }) => {
+        setIsFetching(true);
         enableLoader();
         api
             .setUserInfo({ name, email })
@@ -231,6 +237,7 @@ export const App = () => {
             })
             .finally(() => {
                 disableLoader();
+                setIsFetching(false);
             });
     };
 
@@ -242,10 +249,14 @@ export const App = () => {
                         <Routes>
                             <Route path='/' element={<LandingLazy />} />
                             <Route path='/signup' element={
-                                <RegisterLazy onLogin={handleSignin} onRegister={handleSignup} />
+                                <RegisterLazy
+                                    handleForm={handleSignup}
+                                    isFetching={isFetching} />
                             } />
                             <Route path='/signin' element={
-                                <Login onLogin={handleSignin} onRegister={handleSignup} />
+                                <Login
+                                    handleForm={handleSignin}
+                                    isFetching={isFetching} />
                             } />
                             <Route element={<ProtectedRoute />}>
                                 <Route path='/movies' element={
@@ -272,6 +283,7 @@ export const App = () => {
                                     <ProfileLazy
                                         onLogout={handleLogout}
                                         onSubmit={handleChangeProfileData}
+                                        setIsFetching={setIsFetching}
                                     />
                                 } />
                             </Route>

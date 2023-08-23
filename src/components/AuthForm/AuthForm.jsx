@@ -6,27 +6,18 @@ import { Label } from './Label/Label';
 import { Preloader } from '../Preloader/Preloader';
 import { ApiServiceContext } from '../../contexts/ApiServiceContext';
 
-const AuthForm = ({ isRegForm, onLogin, onRegister }) => {
-    const { values, errors, isValid, handleChange, resetForm } = useFormAndValidation();
+const AuthForm = ({ isRegForm, handleForm, isFetching }) => {
+    const { values, errors, isValid, handleChange } = useFormAndValidation();
     const { isLoading } = useContext(ApiServiceContext);
 
-    const handleSubmit = (evt) => {
-        evt.preventDefault();
-        if (isRegForm) {
-            onRegister({ email: values.email, password: values.password, name: values.name });
-        } else {
-            onLogin({ email: values.email, password: values.password });
-        }
-        resetForm();
-    };
+    function handleSubmit(e) {
+        e.preventDefault();
+        const { name, email, password } = values;
+        handleForm({ name, email, password });
+    }
 
     return (
-        <form
-            name={isRegForm ? 'register' : 'login'}
-            className='form'
-            onSubmit={handleSubmit}
-            noValidate
-        >
+        <form name={isRegForm ? 'register' : 'login'} className='form' onSubmit={handleSubmit} noValidate >
             {isRegForm && (
                 <Label
                     title='Имя'
@@ -34,8 +25,10 @@ const AuthForm = ({ isRegForm, onLogin, onRegister }) => {
                     handleChange={handleChange}
                     values={values}
                     errors={errors}
+                    pattern='^(?!\s)[A-Za-zА-Яа-я\-\s]+$'
                     minLength={2}
                     maxLength={30}
+                    isFetching={isFetching}
                 />
             )}
             <Label
@@ -44,7 +37,9 @@ const AuthForm = ({ isRegForm, onLogin, onRegister }) => {
                 handleChange={handleChange}
                 values={values}
                 errors={errors}
+                pattern='^.+@.+\..+$'
                 errorMessage={errors.email}
+                isFetching={isFetching}
             />
             <Label
                 title='Пароль'
@@ -53,13 +48,18 @@ const AuthForm = ({ isRegForm, onLogin, onRegister }) => {
                 values={values}
                 errors={errors}
                 minLength={6}
+                isFetching={isFetching}
             />
             <p className={`form__response - error ${!isRegForm && 'form__response-error_type_login'}`}>
             </p>
             {
                 isLoading ? <Preloader />
-                    : <button type='submit' className={`form__submit-button ${!isValid && 'form__submit-button_disabled'}`} disabled={!isValid
-                    } >
+                    : <button type='submit'
+                    className={!isValid || isFetching
+                    ? 'form__submit-button'
+                    : 'form__submit-button form__submit-button_disabled'
+                    }
+                    disabled={!isValid || isFetching ? true : false} >
                         {isRegForm ? 'Зарегистрироваться' : 'Войти'}</button >}
             <p className='form__link-caption'>
                 {isRegForm ? (<>
