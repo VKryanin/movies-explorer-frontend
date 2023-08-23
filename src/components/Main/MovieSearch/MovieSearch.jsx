@@ -47,7 +47,7 @@ export function MovieSearch({ onSubmit, isLoading, onError }) {
     return (
         <form className='search' onSubmit={handleSubmit}>
             <div className="search__container">
-                <input className='search__input' type="text" placeholder='Фильм' name='searchString' onChange={handleChange} disabled={isLoading} value={searchQuery.searchString} required />
+                <input className='search__input' type="text" placeholder='Фильм' name='searchString' onChange={handleChange} disabled={isLoading} value={searchQuery.searchString}/>
                 <button className='search__button' type="button"></button>
             </div>
             <label className="search__label">
