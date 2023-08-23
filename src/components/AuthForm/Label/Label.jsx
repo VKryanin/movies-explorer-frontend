@@ -12,7 +12,7 @@ export const Label = ({ title, name, values, handleChange, errors, minLength, ma
                 maxLength={maxLength || null}
                 placeholder={`Введите ${title}`}
                 className='label__input'
-                value={values[`${name}`] ?? ''}
+                value={values[`${name}`] || ''}
                 autoComplete={name}
                 onChange={handleChange}
                 required

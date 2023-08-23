@@ -9,7 +9,6 @@ import { ApiServiceContext } from '../../contexts/ApiServiceContext';
 const AuthForm = ({ isRegForm, onLogin, onRegister }) => {
     const { values, errors, isValid, handleChange, resetForm } = useFormAndValidation();
     const { isLoading } = useContext(ApiServiceContext);
-
     const handleSubmit = (evt) => {
         evt.preventDefault();
         resetForm();
@@ -17,7 +16,6 @@ const AuthForm = ({ isRegForm, onLogin, onRegister }) => {
             ? onRegister({ email: values.email, password: values.password, name: values.name })
             : onLogin({ email: values.email, password: values.password });
     };
-
     return (
         <form
             name={isRegForm ? 'register' : 'login'}
@@ -42,6 +40,7 @@ const AuthForm = ({ isRegForm, onLogin, onRegister }) => {
                 handleChange={handleChange}
                 values={values}
                 errors={errors}
+                errorMessage={errors.email}
             />
             <Label
                 title='Пароль'
@@ -56,8 +55,8 @@ const AuthForm = ({ isRegForm, onLogin, onRegister }) => {
             {isLoading ? <Preloader /> :
                 <button
                     type='submit'
-                    className={`form__submit-button ${!isValid && 'form__submit-button_disabled'}`}
-                    disabled={!isValid}
+                    className={`form__submit-button ${!isValid || errors.email && 'form__submit-button_disabled'}`}
+                    disabled={!isValid || errors.email}
                 >
                     {isRegForm ? 'Зарегистрироваться' : 'Войти'}
                 </button>}
