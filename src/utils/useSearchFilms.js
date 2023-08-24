@@ -41,7 +41,7 @@ export function useSearchFilms({ movies, isSavedPage, isMoviesPage }) {
         }
 
         if (!searchQuery.searchString) {
-            setText('Введите название фильма в строку поиска.')
+            setText('Нужно ввести ключевое слово')
             setSortedMovies([]);
         }
 

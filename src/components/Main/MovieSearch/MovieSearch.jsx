@@ -32,6 +32,7 @@ export function MovieSearch({ onSubmit, isLoading, onError }) {
     };
 
     const handleChange = (e) => {
+        e.preventDefault();
         setSearchQuery({ ...searchQuery, searchString: e.target.value });
     };
 
@@ -47,8 +48,8 @@ export function MovieSearch({ onSubmit, isLoading, onError }) {
     return (
         <form className='search' onSubmit={handleSubmit}>
             <div className="search__container">
-                <input className='search__input' type="text" placeholder='Фильм' name='searchString' onChange={handleChange} disabled={isLoading} value={searchQuery.searchString} required />
-                <button className='search__button' type="button"></button>
+                <input className='search__input' type="text" placeholder='Фильм' name='searchString' onChange={handleChange} disabled={isLoading} value={searchQuery.searchString}/>
+                <button className='search__button' type="submit" onChange={handleChange} disabled={isLoading} value={searchQuery.searchString}></button>
             </div>
             <label className="search__label">
                 <input type="checkbox" className="search__checkbox-input" name='isShortMovie' onChange={handleChangeCheckbox} checked={searchQuery.isShortMovie} disabled={isLoading} />

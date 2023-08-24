@@ -22,7 +22,9 @@ export function Movie(props) {
                     <button
                         type='button'
                         className='movie__delete-button'
-                        onClick={() => onDelete(movieData._id)}
+                        onClick={() => {
+                            console.log(movieData);
+                            onDelete(movieData._id)}}
                     />
                 )}
                 {location.pathname === '/movies' && saved && (

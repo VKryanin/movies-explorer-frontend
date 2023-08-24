@@ -9,6 +9,6 @@ export const projects = [
     },
     {
         title: 'Одностраничное приложение',
-        url: 'https://vkryanin.github.io/mesto/',
+        url: 'https://vitaly.nomoredomains.work/',
     },
 ];

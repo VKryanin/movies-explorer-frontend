@@ -5,11 +5,21 @@ export const useFormAndValidation = (initialValues = {}, initialErrors = {}, ini
     const [errors, setErrors] = useState(initialErrors);
     const [isValid, setValid] = useState(initialValid);
 
-    const handleChange = (evt) => {
-        const { name, value } = evt.target;
+    const handleChange = (event) => {
+        const target = event.target;
+        const name = target.name;
+        const value = target.value;
         setValues({ ...values, [name]: value });
-        setErrors({ ...errors, [name]: evt.target.validationMessage });
-        setValid(evt.target.closest('form').checkValidity());
+        setErrors({ ...errors, [name]: target.validationMessage });
+        setValid(target.closest('form').checkValidity());
+        if (name === 'name') {
+            if (target.validationMessage === 'Введите данные в указанном формате.') {
+                setErrors({
+                    ...errors,
+                    name: 'Имя должно содержать только символы латиницы или кириллицы',
+                });
+            }
+        }
     };
 
     const resetForm = useCallback(
@@ -21,6 +31,5 @@ export const useFormAndValidation = (initialValues = {}, initialErrors = {}, ini
         [setValues, setErrors, setValid]
     );
 
-    return { values, errors, isValid, handleChange, resetForm, setValues, setValid };
+    return { values, errors, isValid, handleChange, resetForm, setValues };
 };
-

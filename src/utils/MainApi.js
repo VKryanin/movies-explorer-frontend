@@ -86,6 +86,7 @@ class Api {
     }
 
     deleteMovie(movieId) {
+        console.log(`${this._link}/movies/${movieId}`);
         return fetch(`${this._link}/movies/${movieId}`, {
             headers: {
                 "Content-Type": "application/json",
