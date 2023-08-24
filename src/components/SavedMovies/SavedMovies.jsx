@@ -10,7 +10,6 @@ export function SavedMovies({ isLoggedIn, movies, onDelete, onError, onTrailerCl
         movies: movies,
         isSavedPage: true,
     });
-    console.log(sortedMovies);
     return (
         <>
             <Header isLoggedIn={isLoggedIn} />
