@@ -2,6 +2,10 @@
     max-width: 364px;
 }
 
+.movie:hover .movie__image{
+    opacity: .6;
+}
+
 .movie__wrapper {
     display: flex;
     justify-content: space-between;
@@ -33,6 +37,7 @@
     object-fit: cover;
     flex-grow: 1;
     cursor: pointer;
+    transition: opacity .3s linear;
 }
 
 .movie__favorite-button {
@@ -55,7 +60,7 @@
     background: url('../../../images/delete-movie.svg') center center;
     background-size: cover;
     border: transparent;
-    
+
     border-radius: 50%;
     transition: all .1s ease-in-out;
 }

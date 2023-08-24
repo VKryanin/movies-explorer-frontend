@@ -24,15 +24,21 @@
     align-items: center;
 }
 
-.header__navlink_active {
-    font-weight: 500;
-}
-
 .header__navlink_type_default {
     font-weight: 400;
     font-size: 13px;
     line-height: 18px;
+    transition: all .3s linear;
 }
+
+.header__navlink_active {
+    transition: all .3s linear;
+    font-style: italic;
+    font-size: 14px;
+    border-bottom: 1px #000 solid;
+}
+
+
 
 .header__navlink_type_profile {
     padding: 8px 20px;
